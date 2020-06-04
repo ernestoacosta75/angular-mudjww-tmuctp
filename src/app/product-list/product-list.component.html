@@ -2,10 +2,23 @@
 
 
 <!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
+- The interpolation {{}} allows render a property value as text.
+- The property binding [] allows use a property value in a template
+  expression.
+- The event binding () allows to bind an element event to a method in a 
+  component.
 -->
 <div *ngFor="let product of products">
-  <h3>{{product.name}}</h3>
+  <h3>
+    <a [title]="product.name + 'details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>  
+
+  <button (click)="share()">Share</button>
+
 </div>
